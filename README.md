@@ -9,6 +9,10 @@ Random Map Picker is a program that randomly selects a surf map from a predefine
 - Filter maps by types: Staged, Linear, and Staged-Linear (included within Staged).
 - Display map preview images from two GitHub repositories.
 
+## Preview
+
+![Main Screen](https://raw.githubusercontent.com/zasbu/Random-Map-Picker/main/main.png)
+
 ## Running the Executable
 
 1. Download the latest release from the [Releases](https://github.com/zasbu/Random-Map-Picker/releases) page.
@@ -25,11 +29,6 @@ Random Map Picker is a program that randomly selects a surf map from a predefine
 2. Use the checkboxes to select the desired tiers and types of maps.
 3. Click on the "Generate Random Map" button to randomly select a map.
 4. The map name, tier, type, and preview image will be displayed.
-
-## Preview
-
-![Main Screen](https://raw.githubusercontent.com/zasbu/Random-Map-Picker/main/main.png)
-
 
 ## License
 
