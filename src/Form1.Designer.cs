@@ -22,312 +22,316 @@
 
         private void InitializeComponent()
         {
-            lblMapName = new Label();
-            lblTier = new Label();
-            lblTierNumber = new Label();
-            lblType = new Label();
-            chkTier1 = new CheckBox();
-            bottomPanel = new Panel();
-            chkStaged = new CheckBox();
-            chkLinear = new CheckBox();
-            chkTier2 = new CheckBox();
-            chkTier3 = new CheckBox();
-            chkTier4 = new CheckBox();
-            chkTier5 = new CheckBox();
-            chkTier6 = new CheckBox();
-            chkTier7 = new CheckBox();
-            chkTier8 = new CheckBox();
-            btnGenerate = new Button();
-            picMapPreview = new PictureBox();
-            bottomPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picMapPreview).BeginInit();
-            SuspendLayout();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.BackColor = System.Drawing.Color.FromArgb(45, 45, 48); // Dark background color
+            this.ForeColor = System.Drawing.Color.White; // White text color
+
+            this.lblMapName = new System.Windows.Forms.Label();
+            this.lblTier = new System.Windows.Forms.Label();
+            this.lblTierNumber = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
+            this.chkTier1 = new System.Windows.Forms.CheckBox();
+            this.chkTier2 = new System.Windows.Forms.CheckBox();
+            this.chkTier3 = new System.Windows.Forms.CheckBox();
+            this.chkTier4 = new System.Windows.Forms.CheckBox();
+            this.chkTier5 = new System.Windows.Forms.CheckBox();
+            this.chkTier6 = new System.Windows.Forms.CheckBox();
+            this.chkTier7 = new System.Windows.Forms.CheckBox();
+            this.chkTier8 = new System.Windows.Forms.CheckBox();
+            this.chkStaged = new System.Windows.Forms.CheckBox();
+            this.chkLinear = new System.Windows.Forms.CheckBox();
+            this.btnGenerate = new System.Windows.Forms.Button();
+            this.bottomPanel = new System.Windows.Forms.Panel();
+            this.picMapPreview = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picMapPreview)).BeginInit();
+            this.SuspendLayout();
+
             // 
             // lblMapName
             // 
-            lblMapName.AutoSize = true;
-            lblMapName.BackColor = Color.Transparent;
-            lblMapName.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMapName.ForeColor = Color.White;
-            lblMapName.Location = new Point(331, 46);
-            lblMapName.Margin = new Padding(4, 0, 4, 0);
-            lblMapName.Name = "lblMapName";
-            lblMapName.Size = new Size(128, 27);
-            lblMapName.TabIndex = 0;
-            lblMapName.Text = "Map Name";
-            lblMapName.TextAlign = ContentAlignment.MiddleCenter;
+            this.lblMapName.AutoSize = true;
+            this.lblMapName.BackColor = System.Drawing.Color.Transparent;
+            this.lblMapName.Font = new System.Drawing.Font("Helvetica", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMapName.ForeColor = System.Drawing.Color.White; // White text color
+            this.lblMapName.Location = new System.Drawing.Point((this.ClientSize.Width - this.lblMapName.Width) / 2, 40); // Centered horizontally
+            this.lblMapName.Name = "lblMapName";
+            this.lblMapName.Size = new System.Drawing.Size(128, 29);
+            this.lblMapName.TabIndex = 0;
+            this.lblMapName.Text = "Map Name";
+            this.lblMapName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
             // 
             // lblTier
             // 
-            lblTier.AutoSize = true;
-            lblTier.BackColor = Color.Transparent;
-            lblTier.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTier.ForeColor = Color.White;
-            lblTier.Location = new Point(331, 92);
-            lblTier.Margin = new Padding(4, 0, 4, 0);
-            lblTier.Name = "lblTier";
-            lblTier.Size = new Size(42, 22);
-            lblTier.TabIndex = 1;
-            lblTier.Text = "Tier";
-            lblTier.TextAlign = ContentAlignment.MiddleCenter;
+            this.lblTier.AutoSize = true;
+            this.lblTier.BackColor = System.Drawing.Color.Transparent;
+            this.lblTier.Font = new System.Drawing.Font("Helvetica", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTier.ForeColor = System.Drawing.Color.White; // White text color
+            this.lblTier.Location = new System.Drawing.Point((this.ClientSize.Width - this.lblTier.Width - this.lblTierNumber.Width) / 2, 80); // Centered with lblTierNumber
+            this.lblTier.Name = "lblTier";
+            this.lblTier.Size = new System.Drawing.Size(43, 23);
+            this.lblTier.TabIndex = 1;
+            this.lblTier.Text = "Tier";
+            this.lblTier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
             // 
             // lblTierNumber
             // 
-            lblTierNumber.AutoSize = true;
-            lblTierNumber.BackColor = Color.Transparent;
-            lblTierNumber.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTierNumber.ForeColor = Color.Red;
-            lblTierNumber.Location = new Point(331, 92);
-            lblTierNumber.Margin = new Padding(4, 0, 4, 0);
-            lblTierNumber.Name = "lblTierNumber";
-            lblTierNumber.Size = new Size(26, 22);
-            lblTierNumber.TabIndex = 1;
-            lblTierNumber.Text = " 3";
-            lblTierNumber.TextAlign = ContentAlignment.MiddleCenter;
+            this.lblTierNumber.AutoSize = true;
+            this.lblTierNumber.BackColor = System.Drawing.Color.Transparent;
+            this.lblTierNumber.Font = new System.Drawing.Font("Helvetica", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTierNumber.ForeColor = System.Drawing.Color.Red;
+            this.lblTierNumber.Location = new System.Drawing.Point((this.ClientSize.Width - this.lblTier.Width - this.lblTierNumber.Width) / 2 + this.lblTier.Width, 80); // Centered with lblTier
+            this.lblTierNumber.Name = "lblTierNumber";
+            this.lblTierNumber.Size = new System.Drawing.Size(30, 23);
+            this.lblTierNumber.TabIndex = 1;
+            this.lblTierNumber.Text = " 3";
+            this.lblTierNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
             // 
             // lblType
             // 
-            lblType.AutoSize = true;
-            lblType.BackColor = Color.Transparent;
-            lblType.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblType.ForeColor = Color.White;
-            lblType.Location = new Point(331, 115);
-            lblType.Margin = new Padding(4, 0, 4, 0);
-            lblType.Name = "lblType";
-            lblType.Size = new Size(41, 18);
-            lblType.TabIndex = 2;
-            lblType.Text = "Type";
-            lblType.TextAlign = ContentAlignment.MiddleCenter;
+            this.lblType.AutoSize = true;
+            this.lblType.BackColor = System.Drawing.Color.Transparent;
+            this.lblType.Font = new System.Drawing.Font("Helvetica", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblType.ForeColor = System.Drawing.Color.White; // White text color
+            this.lblType.Location = new System.Drawing.Point((this.ClientSize.Width - this.lblType.Width) / 2, 100); // Centered horizontally
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(45, 19);
+            this.lblType.TabIndex = 2;
+            this.lblType.Text = "Type";
+            this.lblType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
             // 
             // chkTier1
             // 
-            chkTier1.AutoSize = true;
-            chkTier1.BackColor = Color.Transparent;
-            chkTier1.Checked = true;
-            chkTier1.CheckState = CheckState.Checked;
-            chkTier1.Font = new Font("Arial", 8F);
-            chkTier1.ForeColor = Color.White;
-            chkTier1.Location = new Point(700, 23);
-            chkTier1.Margin = new Padding(4, 3, 4, 3);
-            chkTier1.Name = "chkTier1";
-            chkTier1.Size = new Size(53, 18);
-            chkTier1.TabIndex = 3;
-            chkTier1.Text = "Tier 1";
-            chkTier1.UseVisualStyleBackColor = true;
-            // 
-            // bottomPanel
-            // 
-            bottomPanel.BackColor = Color.FromArgb(30, 30, 30);
-            bottomPanel.Controls.Add(chkStaged);
-            bottomPanel.Controls.Add(chkLinear);
-            bottomPanel.Controls.Add(chkTier1);
-            bottomPanel.Controls.Add(chkTier2);
-            bottomPanel.Controls.Add(chkTier3);
-            bottomPanel.Controls.Add(chkTier4);
-            bottomPanel.Controls.Add(chkTier5);
-            bottomPanel.Controls.Add(chkTier6);
-            bottomPanel.Controls.Add(chkTier7);
-            bottomPanel.Controls.Add(chkTier8);
-            bottomPanel.Controls.Add(btnGenerate);
-            bottomPanel.Location = new Point(0, 444);
-            bottomPanel.Margin = new Padding(4, 3, 4, 3);
-            bottomPanel.Name = "bottomPanel";
-            bottomPanel.Size = new Size(700, 138);
-            bottomPanel.TabIndex = 15;
-            // 
-            // chkStaged
-            // 
-            chkStaged.AutoSize = true;
-            chkStaged.BackColor = Color.Transparent;
-            chkStaged.Checked = true;
-            chkStaged.CheckState = CheckState.Checked;
-            chkStaged.Font = new Font("Arial", 8F);
-            chkStaged.ForeColor = Color.White;
-            chkStaged.Location = new Point(0, 0);
-            chkStaged.Margin = new Padding(4, 3, 4, 3);
-            chkStaged.Name = "chkStaged";
-            chkStaged.Size = new Size(60, 18);
-            chkStaged.TabIndex = 11;
-            chkStaged.Text = "Staged";
-            chkStaged.UseVisualStyleBackColor = true;
-            // 
-            // chkLinear
-            // 
-            chkLinear.AutoSize = true;
-            chkLinear.BackColor = Color.Transparent;
-            chkLinear.Checked = true;
-            chkLinear.CheckState = CheckState.Checked;
-            chkLinear.Font = new Font("Arial", 8F);
-            chkLinear.ForeColor = Color.White;
-            chkLinear.Location = new Point(0, 23);
-            chkLinear.Margin = new Padding(4, 3, 4, 3);
-            chkLinear.Name = "chkLinear";
-            chkLinear.Size = new Size(56, 18);
-            chkLinear.TabIndex = 12;
-            chkLinear.Text = "Linear";
-            chkLinear.UseVisualStyleBackColor = true;
+            this.chkTier1.AutoSize = true;
+            this.chkTier1.BackColor = System.Drawing.Color.Transparent;
+            this.chkTier1.Font = new System.Drawing.Font("Helvetica", 8F);
+            this.chkTier1.ForeColor = System.Drawing.Color.White; // White text color
+            this.chkTier1.Location = new System.Drawing.Point(0, 0);
+            this.chkTier1.Name = "chkTier1";
+            this.chkTier1.Size = new System.Drawing.Size(55, 18);
+            this.chkTier1.TabIndex = 3;
+            this.chkTier1.Text = "Tier 1";
+            this.chkTier1.UseVisualStyleBackColor = true;
+            this.chkTier1.Checked = true;
+
             // 
             // chkTier2
             // 
-            chkTier2.AutoSize = true;
-            chkTier2.BackColor = Color.Transparent;
-            chkTier2.Checked = true;
-            chkTier2.CheckState = CheckState.Checked;
-            chkTier2.Font = new Font("Arial", 8F);
-            chkTier2.ForeColor = Color.White;
-            chkTier2.Location = new Point(0, 0);
-            chkTier2.Margin = new Padding(4, 3, 4, 3);
-            chkTier2.Name = "chkTier2";
-            chkTier2.Size = new Size(53, 18);
-            chkTier2.TabIndex = 4;
-            chkTier2.Text = "Tier 2";
-            chkTier2.UseVisualStyleBackColor = true;
+            this.chkTier2.AutoSize = true;
+            this.chkTier2.BackColor = System.Drawing.Color.Transparent;
+            this.chkTier2.Font = new System.Drawing.Font("Helvetica", 8F);
+            this.chkTier2.ForeColor = System.Drawing.Color.White; // White text color
+            this.chkTier2.Location = new System.Drawing.Point(0, 0);
+            this.chkTier2.Name = "chkTier2";
+            this.chkTier2.Size = new System.Drawing.Size(55, 18);
+            this.chkTier2.TabIndex = 4;
+            this.chkTier2.Text = "Tier 2";
+            this.chkTier2.UseVisualStyleBackColor = true;
+            this.chkTier2.Checked = true;
+
             // 
             // chkTier3
             // 
-            chkTier3.AutoSize = true;
-            chkTier3.BackColor = Color.Transparent;
-            chkTier3.Checked = true;
-            chkTier3.CheckState = CheckState.Checked;
-            chkTier3.Font = new Font("Arial", 8F);
-            chkTier3.ForeColor = Color.White;
-            chkTier3.Location = new Point(0, 0);
-            chkTier3.Margin = new Padding(4, 3, 4, 3);
-            chkTier3.Name = "chkTier3";
-            chkTier3.Size = new Size(53, 18);
-            chkTier3.TabIndex = 5;
-            chkTier3.Text = "Tier 3";
-            chkTier3.UseVisualStyleBackColor = true;
+            this.chkTier3.AutoSize = true;
+            this.chkTier3.BackColor = System.Drawing.Color.Transparent;
+            this.chkTier3.Font = new System.Drawing.Font("Helvetica", 8F);
+            this.chkTier3.ForeColor = System.Drawing.Color.White; // White text color
+            this.chkTier3.Location = new System.Drawing.Point(0, 0);
+            this.chkTier3.Name = "chkTier3";
+            this.chkTier3.Size = new System.Drawing.Size(55, 18);
+            this.chkTier3.TabIndex = 5;
+            this.chkTier3.Text = "Tier 3";
+            this.chkTier3.UseVisualStyleBackColor = true;
+            this.chkTier3.Checked = true;
+
             // 
             // chkTier4
             // 
-            chkTier4.AutoSize = true;
-            chkTier4.BackColor = Color.Transparent;
-            chkTier4.Checked = true;
-            chkTier4.CheckState = CheckState.Checked;
-            chkTier4.Font = new Font("Arial", 8F);
-            chkTier4.ForeColor = Color.White;
-            chkTier4.Location = new Point(0, 0);
-            chkTier4.Margin = new Padding(4, 3, 4, 3);
-            chkTier4.Name = "chkTier4";
-            chkTier4.Size = new Size(53, 18);
-            chkTier4.TabIndex = 6;
-            chkTier4.Text = "Tier 4";
-            chkTier4.UseVisualStyleBackColor = true;
+            this.chkTier4.AutoSize = true;
+            this.chkTier4.BackColor = System.Drawing.Color.Transparent;
+            this.chkTier4.Font = new System.Drawing.Font("Helvetica", 8F);
+            this.chkTier4.ForeColor = System.Drawing.Color.White; // White text color
+            this.chkTier4.Location = new System.Drawing.Point(0, 0);
+            this.chkTier4.Name = "chkTier4";
+            this.chkTier4.Size = new System.Drawing.Size(55, 18);
+            this.chkTier4.TabIndex = 6;
+            this.chkTier4.Text = "Tier 4";
+            this.chkTier4.UseVisualStyleBackColor = true;
+            this.chkTier4.Checked = true;
+
             // 
             // chkTier5
             // 
-            chkTier5.AutoSize = true;
-            chkTier5.BackColor = Color.Transparent;
-            chkTier5.Checked = true;
-            chkTier5.CheckState = CheckState.Checked;
-            chkTier5.Font = new Font("Arial", 8F);
-            chkTier5.ForeColor = Color.White;
-            chkTier5.Location = new Point(0, 0);
-            chkTier5.Margin = new Padding(4, 3, 4, 3);
-            chkTier5.Name = "chkTier5";
-            chkTier5.Size = new Size(53, 18);
-            chkTier5.TabIndex = 7;
-            chkTier5.Text = "Tier 5";
-            chkTier5.UseVisualStyleBackColor = true;
+            this.chkTier5.AutoSize = true;
+            this.chkTier5.BackColor = System.Drawing.Color.Transparent;
+            this.chkTier5.Font = new System.Drawing.Font("Helvetica", 8F);
+            this.chkTier5.ForeColor = System.Drawing.Color.White; // White text color
+            this.chkTier5.Location = new System.Drawing.Point(0, 0);
+            this.chkTier5.Name = "chkTier5";
+            this.chkTier5.Size = new System.Drawing.Size(55, 18);
+            this.chkTier5.TabIndex = 7;
+            this.chkTier5.Text = "Tier 5";
+            this.chkTier5.UseVisualStyleBackColor = true;
+            this.chkTier5.Checked = true;
+
             // 
             // chkTier6
             // 
-            chkTier6.AutoSize = true;
-            chkTier6.BackColor = Color.Transparent;
-            chkTier6.Checked = true;
-            chkTier6.CheckState = CheckState.Checked;
-            chkTier6.Font = new Font("Arial", 8F);
-            chkTier6.ForeColor = Color.White;
-            chkTier6.Location = new Point(0, 0);
-            chkTier6.Margin = new Padding(4, 3, 4, 3);
-            chkTier6.Name = "chkTier6";
-            chkTier6.Size = new Size(53, 18);
-            chkTier6.TabIndex = 8;
-            chkTier6.Text = "Tier 6";
-            chkTier6.UseVisualStyleBackColor = true;
+            this.chkTier6.AutoSize = true;
+            this.chkTier6.BackColor = System.Drawing.Color.Transparent;
+            this.chkTier6.Font = new System.Drawing.Font("Helvetica", 8F);
+            this.chkTier6.ForeColor = System.Drawing.Color.White; // White text color
+            this.chkTier6.Location = new System.Drawing.Point(0, 0);
+            this.chkTier6.Name = "chkTier6";
+            this.chkTier6.Size = new System.Drawing.Size(55, 18);
+            this.chkTier6.TabIndex = 8;
+            this.chkTier6.Text = "Tier 6";
+            this.chkTier6.UseVisualStyleBackColor = true;
+            this.chkTier6.Checked = true;
+
             // 
             // chkTier7
             // 
-            chkTier7.AutoSize = true;
-            chkTier7.BackColor = Color.Transparent;
-            chkTier7.Checked = true;
-            chkTier7.CheckState = CheckState.Checked;
-            chkTier7.Font = new Font("Arial", 8F);
-            chkTier7.ForeColor = Color.White;
-            chkTier7.Location = new Point(0, 0);
-            chkTier7.Margin = new Padding(4, 3, 4, 3);
-            chkTier7.Name = "chkTier7";
-            chkTier7.Size = new Size(53, 18);
-            chkTier7.TabIndex = 9;
-            chkTier7.Text = "Tier 7";
-            chkTier7.UseVisualStyleBackColor = true;
+            this.chkTier7.AutoSize = true;
+            this.chkTier7.BackColor = System.Drawing.Color.Transparent;
+            this.chkTier7.Font = new System.Drawing.Font("Helvetica", 8F);
+            this.chkTier7.ForeColor = System.Drawing.Color.White; // White text color
+            this.chkTier7.Location = new System.Drawing.Point(0, 0);
+            this.chkTier7.Name = "chkTier7";
+            this.chkTier7.Size = new System.Drawing.Size(55, 18);
+            this.chkTier7.TabIndex = 9;
+            this.chkTier7.Text = "Tier 7";
+            this.chkTier7.UseVisualStyleBackColor = true;
+            this.chkTier7.Checked = true;
+
             // 
             // chkTier8
             // 
-            chkTier8.AutoSize = true;
-            chkTier8.BackColor = Color.Transparent;
-            chkTier8.Checked = true;
-            chkTier8.CheckState = CheckState.Checked;
-            chkTier8.Font = new Font("Arial", 8F);
-            chkTier8.ForeColor = Color.White;
-            chkTier8.Location = new Point(0, 0);
-            chkTier8.Margin = new Padding(4, 3, 4, 3);
-            chkTier8.Name = "chkTier8";
-            chkTier8.Size = new Size(53, 18);
-            chkTier8.TabIndex = 10;
-            chkTier8.Text = "Tier 8";
-            chkTier8.UseVisualStyleBackColor = true;
+            this.chkTier8.AutoSize = true;
+            this.chkTier8.BackColor = System.Drawing.Color.Transparent;
+            this.chkTier8.Font = new System.Drawing.Font("Helvetica", 8F);
+            this.chkTier8.ForeColor = System.Drawing.Color.White; // White text color
+            this.chkTier8.Location = new System.Drawing.Point(0, 0);
+            this.chkTier8.Name = "chkTier8";
+            this.chkTier8.Size = new System.Drawing.Size(55, 18);
+            this.chkTier8.TabIndex = 10;
+            this.chkTier8.Text = "Tier 8";
+            this.chkTier8.UseVisualStyleBackColor = true;
+            this.chkTier8.Checked = true;
+
+            // 
+            // chkStaged
+            // 
+            this.chkStaged.AutoSize = true;
+            this.chkStaged.BackColor = System.Drawing.Color.Transparent;
+            this.chkStaged.Font = new System.Drawing.Font("Helvetica", 8F);
+            this.chkStaged.ForeColor = System.Drawing.Color.White; // White text color
+            this.chkStaged.Location = new System.Drawing.Point(0, 0);
+            this.chkStaged.Name = "chkStaged";
+            this.chkStaged.Size = new System.Drawing.Size(64, 18);
+            this.chkStaged.TabIndex = 11;
+            this.chkStaged.Text = "Staged";
+            this.chkStaged.UseVisualStyleBackColor = true;
+            this.chkStaged.Checked = true;
+
+            // 
+            // chkLinear
+            // 
+            this.chkLinear.AutoSize = true;
+            this.chkLinear.BackColor = System.Drawing.Color.Transparent;
+            this.chkLinear.Font = new System.Drawing.Font("Helvetica", 8F);
+            this.chkLinear.ForeColor = System.Drawing.Color.White; // White text color
+            this.chkLinear.Location = new System.Drawing.Point(0, 20);
+            this.chkLinear.Name = "chkLinear";
+            this.chkLinear.Size = new System.Drawing.Size(57, 18);
+            this.chkLinear.TabIndex = 12;
+            this.chkLinear.Text = "Linear";
+            this.chkLinear.UseVisualStyleBackColor = true;
+            this.chkLinear.Checked = true;
+
             // 
             // btnGenerate
             // 
-            btnGenerate.BackColor = Color.DodgerBlue;
-            btnGenerate.FlatAppearance.BorderSize = 0;
-            btnGenerate.FlatStyle = FlatStyle.Flat;
-            btnGenerate.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnGenerate.ForeColor = Color.White;
-            btnGenerate.Location = new Point(23, 69);
-            btnGenerate.Margin = new Padding(4, 3, 4, 3);
-            btnGenerate.Name = "btnGenerate";
-            btnGenerate.Size = new Size(653, 46);
-            btnGenerate.TabIndex = 14;
-            btnGenerate.Text = "Generate Random Map";
-            btnGenerate.UseVisualStyleBackColor = false;
+            this.btnGenerate.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGenerate.FlatAppearance.BorderSize = 0;
+            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.Font = new System.Drawing.Font("Helvetica", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.ForeColor = System.Drawing.Color.White;
+            this.btnGenerate.Location = new System.Drawing.Point(20, 60);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(560, 40);
+            this.btnGenerate.TabIndex = 14;
+            this.btnGenerate.Text = "Generate Random Map";
+            this.btnGenerate.UseVisualStyleBackColor = false;
+
+            // 
+            // bottomPanel
+            // 
+            this.bottomPanel.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            this.bottomPanel.Controls.Add(this.chkStaged);
+            this.bottomPanel.Controls.Add(this.chkLinear);
+            this.bottomPanel.Controls.Add(this.chkTier1);
+            this.bottomPanel.Controls.Add(this.chkTier2);
+            this.bottomPanel.Controls.Add(this.chkTier3);
+            this.bottomPanel.Controls.Add(this.chkTier4);
+            this.bottomPanel.Controls.Add(this.chkTier5);
+            this.bottomPanel.Controls.Add(this.chkTier6);
+            this.bottomPanel.Controls.Add(this.chkTier7);
+            this.bottomPanel.Controls.Add(this.chkTier8);
+            this.bottomPanel.Controls.Add(this.btnGenerate);
+            this.bottomPanel.Location = new System.Drawing.Point(0, 385);
+            this.bottomPanel.Name = "bottomPanel";
+            this.bottomPanel.Size = new System.Drawing.Size(600, 120);
+            this.bottomPanel.TabIndex = 15;
+
+            // Adjust the position of the checkboxes to center them
+            int totalCheckboxWidth = 8 * (chkTier1.Width + 10);
+            int startX = (this.bottomPanel.Width - totalCheckboxWidth) / 2 - 8;
+
+            this.chkTier1.Location = new System.Drawing.Point(startX + 50, 20);
+            this.chkTier2.Location = new System.Drawing.Point(startX + (chkTier1.Width + 10) * 1 + 50, 20);
+            this.chkTier3.Location = new System.Drawing.Point(startX + (chkTier1.Width + 10) * 2 + 50, 20);
+            this.chkTier4.Location = new System.Drawing.Point(startX + (chkTier1.Width + 10) * 3 + 50, 20);
+            this.chkTier5.Location = new System.Drawing.Point(startX + (chkTier1.Width + 10) * 4 + 50, 20);
+            this.chkTier6.Location = new System.Drawing.Point(startX + (chkTier1.Width + 10) * 5 + 50, 20);
+            this.chkTier7.Location = new System.Drawing.Point(startX + (chkTier1.Width + 10) * 6 + 50, 20);
+            this.chkTier8.Location = new System.Drawing.Point(startX + (chkTier1.Width + 10) * 7 + 50, 20);
+
+            this.chkStaged.Location = new System.Drawing.Point(startX - 15, 11);
+            this.chkLinear.Location = new System.Drawing.Point(startX - 15, 29);
+
             // 
             // picMapPreview
             // 
-            picMapPreview.BackColor = Color.Transparent;
-            picMapPreview.Location = new Point(58, 150);
-            picMapPreview.Margin = new Padding(4, 3, 4, 3);
-            picMapPreview.Name = "picMapPreview";
-            picMapPreview.Size = new Size(583, 231);
-            picMapPreview.SizeMode = PictureBoxSizeMode.StretchImage;
-            picMapPreview.TabIndex = 16;
-            picMapPreview.TabStop = false;
-            picMapPreview.Paint += PicMapPreview_Paint;
+            this.picMapPreview.BackColor = System.Drawing.Color.Transparent;
+            this.picMapPreview.Location = new System.Drawing.Point(50, 130);
+            this.picMapPreview.Name = "picMapPreview";
+            this.picMapPreview.Size = new System.Drawing.Size(500, 200);
+            this.picMapPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMapPreview.TabIndex = 16;
+            this.picMapPreview.TabStop = false;
+            this.picMapPreview.Paint += new System.Windows.Forms.PaintEventHandler(this.PicMapPreview_Paint);
+
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(45, 45, 48);
-            ClientSize = new Size(700, 577);
-            Controls.Add(picMapPreview);
-            Controls.Add(bottomPanel);
-            Controls.Add(lblType);
-            Controls.Add(lblTier);
-            Controls.Add(lblMapName);
-            Controls.Add(lblTierNumber);
-            ForeColor = Color.White;
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "Form1";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Random Map Picker";
-            bottomPanel.ResumeLayout(false);
-            bottomPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picMapPreview).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(600, 500);
+            this.Controls.Add(this.picMapPreview);
+            this.Controls.Add(this.bottomPanel);
+            this.Controls.Add(this.lblType);
+            this.Controls.Add(this.lblTier);
+            this.Controls.Add(this.lblMapName);
+            this.Controls.Add(this.lblTierNumber);
+            this.Name = "Form1";
+            this.Text = "Random Map Picker";
+            ((System.ComponentModel.ISupportInitialize)(this.picMapPreview)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
     }
 }

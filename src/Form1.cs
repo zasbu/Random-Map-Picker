@@ -1,7 +1,9 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -74,7 +76,7 @@ namespace MapPicker
                     response.EnsureSuccessStatusCode();
                     var stream = await response.Content.ReadAsStreamAsync();
 
-                    using (var memoryStream = new System.IO.MemoryStream())
+                    using (var memoryStream = new MemoryStream())
                     {
                         await stream.CopyToAsync(memoryStream);
                         memoryStream.Position = 0;
@@ -100,6 +102,29 @@ namespace MapPicker
             }
         }
 
+        private async void LoadBackgroundImage()
+        {
+            // Load background image from new URL
+            string imageUrl = "https://raw.githubusercontent.com/zasbu/SurfMapsScreenshots/main/screenshots/background.png";
+            using (HttpClient client = new HttpClient())
+            {
+                var response = await client.GetAsync(imageUrl);
+                response.EnsureSuccessStatusCode();
+                using (var stream = await response.Content.ReadAsStreamAsync())
+                {
+                    var backgroundImage = Image.FromStream(stream);
+                    this.BackgroundImage = backgroundImage;
+                    this.BackgroundImageLayout = ImageLayout.Stretch;
+                }
+            }
+
+            // Hide labels initially
+            lblMapName.Visible = false;
+            lblTier.Visible = false;
+            lblType.Visible = false;
+            lblTierNumber.Visible = false;
+        }
+
         private void InitializeUI()
         {
             // Hide labels initially
@@ -113,23 +138,6 @@ namespace MapPicker
             this.MaximizeBox = false;
 
             btnGenerate.Click += async (sender, args) => await PickRandomMap();
-        }
-
-        private void LoadBackgroundImage()
-        {
-            // Load background image from new URL
-            string imageUrl = "https://raw.githubusercontent.com/zasbu/SurfMapsScreenshots/main/screenshots/background.png";
-            using (HttpClient client = new HttpClient())
-            {
-                var response = client.GetAsync(imageUrl).Result;
-                response.EnsureSuccessStatusCode();
-                using (var stream = response.Content.ReadAsStream())
-                {
-                    var backgroundImage = Image.FromStream(stream);
-                    this.BackgroundImage = backgroundImage;
-                    this.BackgroundImageLayout = ImageLayout.Stretch;
-                }
-            }
         }
 
         private void UpdateShuffledMaps()
@@ -170,9 +178,9 @@ namespace MapPicker
                 var tempFilteredMaps = surfMaps.AsEnumerable()
                     .Where(row =>
                     {
-                        if (int.TryParse(row["Tier"]?.ToString(), out int tier) && includedTiers.Contains(tier))
+                        if (int.TryParse(row["Tier"].ToString(), out int tier) && includedTiers.Contains(tier))
                         {
-                            var type = row["Type"]?.ToString();
+                            var type = row["Type"].ToString();
                             return type != null && includedTypes.Contains(type);
                         }
                         else
@@ -229,7 +237,7 @@ namespace MapPicker
 
             lastGeneratedMap = selectedMap;
 
-            var mapData = surfMaps.AsEnumerable().FirstOrDefault(row => row["Map name"]?.ToString() == selectedMap);
+            var mapData = surfMaps.AsEnumerable().FirstOrDefault(row => row["Map name"].ToString() == selectedMap);
             if (mapData != null)
             {
                 DisplayMapData(mapData);
@@ -245,10 +253,10 @@ namespace MapPicker
 
         private void DisplayMapData(DataRow mapData)
         {
-            var mapTier = Convert.ToInt32(mapData["Tier"]?.ToString() ?? "0");
-            var mapType = mapData["Type"]?.ToString();
+            var mapTier = Convert.ToInt32(mapData["Tier"]);
+            var mapType = mapData["Type"].ToString();
 
-            lblMapName.Text = mapData["Map name"]?.ToString() ?? "Unknown Map";
+            lblMapName.Text = mapData["Map name"].ToString();
             lblMapName.Visible = true;
             CenterControl(lblMapName);
 
@@ -259,29 +267,40 @@ namespace MapPicker
             lblTierNumber.Visible = true;
             CenterControl(lblTier, lblTierNumber);
 
-            lblType.Text = mapType ?? "Unknown Type";
+            lblType.Text = mapType;
             lblType.Visible = true;
             CenterControl(lblType);
         }
 
         private async Task LoadMapPreview(string mapName)
         {
-            // Attempt to load image from primary URL
-            string primaryImageUrl = $"https://raw.githubusercontent.com/Sayt123/SurfMapPics/Maps-and-bonuses/csgo/{mapName}.jpg";
-            if (await TryLoadImageFromUrl(primaryImageUrl))
-            {
-                return;
-            }
+            string localImagePath = Path.Combine("MapImages", $"{mapName}.jpg");
 
-            // Attempt to load image from secondary URL
-            string secondaryImageUrl = $"https://raw.githubusercontent.com/zasbu/SurfMapsScreenshots/main/screenshots/{mapName}.jpg";
-            if (await TryLoadImageFromUrl(secondaryImageUrl))
+            if (File.Exists(localImagePath))
             {
-                return;
+                // Load image from local directory
+                picMapPreview.Image = Image.FromFile(localImagePath);
+                picMapPreview.Visible = true;
             }
+            else
+            {
+                // Attempt to load image from primary URL
+                string primaryImageUrl = $"https://raw.githubusercontent.com/Sayt123/SurfMapPics/Maps-and-bonuses/csgo/{mapName}.jpg";
+                if (await TryLoadImageFromUrl(primaryImageUrl))
+                {
+                    return;
+                }
 
-            // If both attempts fail, do nothing
-            picMapPreview.Image = null;
+                // Attempt to load image from secondary URL
+                string secondaryImageUrl = $"https://raw.githubusercontent.com/zasbu/SurfMapsScreenshots/main/screenshots/{mapName}.jpg";
+                if (await TryLoadImageFromUrl(secondaryImageUrl))
+                {
+                    return;
+                }
+
+                // If both attempts fail, do nothing
+                picMapPreview.Image = null;
+            }
         }
 
         private async Task<bool> TryLoadImageFromUrl(string imageUrl)
