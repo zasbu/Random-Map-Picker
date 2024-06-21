@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<item>
+  <version>1.0.1</version>
+  <url>https://github.com/zasbu/Random-Map-Picker/releases/download/v1.0.1/Random%20Map%20Picker.exe</url>
+  <changelog>
+    <![CDATA[
+    <ul>
+      <li>Added new features</li>
+      <li>Fixed bugs</li>
+    </ul>
+    ]]>
+  </changelog>
+  <mandatory>false</mandatory>
+</item>
