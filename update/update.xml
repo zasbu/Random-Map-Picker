@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <item>
-  <version>1.0.0</version>
-  <url>https://github.com/zasbu/Random-Map-Picker/releases/download/v1.0.0/RandomMapPicker.exe</url>
-  <changelog>Update to version 1.0.0 with additional features and bug fixes.</changelog>
+  <version>1.0.2</version>
+  <url>https://github.com/zasbu/Random-Map-Picker/releases/download/v1.0.2/RandomMapPicker.exe</url>
+  <changelog>https://github.com/zasbu/Random-Map-Picker/releases/tag/v1.0.2</changelog>
+  <mandatory>false</mandatory>
 </item>
